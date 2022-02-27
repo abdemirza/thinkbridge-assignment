@@ -16,12 +16,15 @@ export default function CategoryScreen({navigation}) {
   const dispatch = useDispatch();
   const {addCategoryAction} = bindActionCreators(actionCreators, dispatch);
   const addCategoryHandler = () => {
+
     setInputVisible(false);
     const payload = {
       name: category,
       id: categories.length + 1,
       images: [],
     };
+    if(category.length ==0)
+    return alert('Please enter a category name');
     addCategoryAction(payload);
     setCategory('');
   };
@@ -49,6 +52,7 @@ export default function CategoryScreen({navigation}) {
         />
       )}
       <CustomButton
+      //  disabled={category.length === 0}
         onPress={() =>
           inputVisible ? addCategoryHandler() : inputVisibleHandler()
         }
