@@ -11,7 +11,7 @@ export const checkPermission = async () => {
             PermissionsAndroid.PERMISSIONS.CAMERA,
             PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
           ]).then(result => {
-            console.log(result);
+            // console.log(result);
           });
         }
       });

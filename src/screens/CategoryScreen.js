@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, ScrollView, TextInput} from 'react-native';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import CategoryTab from '../components/CategoryTab';
-import {RANDOM_COLOR} from '../constants/Color';
+import {RANDOM_COLOR, SECONDARY} from '../constants/Color';
 import CustomButton from '../components/CustomButton';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../state';
@@ -35,7 +35,7 @@ export default function CategoryScreen({navigation}) {
         <CategoryTab
           key={category.id}
           onPress={() => navigation.navigate('Gallery', {id: category.id})}
-          color={RANDOM_COLOR[Math.floor(Math.random() * RANDOM_COLOR.length)]}
+          color={'#fff'}
           title={category.name}
         />
       ))}

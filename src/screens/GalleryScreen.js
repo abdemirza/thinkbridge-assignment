@@ -14,13 +14,12 @@ export default function GalleryScreen({route}) {
   const dispatch = useDispatch();
   const {addImageAction} = bindActionCreators(actionCreators, dispatch);
   const currentCategory = categories.find(category => category.id === id);
-  console.log(currentCategory);
   const imagePicker = async () => {
     launchImageLibrary({
       mediaType: 'photo',
     })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         if (response.didCancel) {
           console.warn('User cancelled image picker');
         } else if (response.error) {
@@ -43,7 +42,6 @@ export default function GalleryScreen({route}) {
       mediaType: 'photo',
     })
       .then(response => {
-        console.log(response);
         if (response.didCancel) {
           console.warn('User cancelled image picker');
         } else if (response.error) {
@@ -70,7 +68,7 @@ export default function GalleryScreen({route}) {
       ]}>
          <FlatList
         data={currentCategory?.images}
-        renderItem={({item,index})=><Thumbnail key={index} uri={item} />}
+        renderItem={({item,index})=><Thumbnail id={item.id} currentCategory={currentCategory} key={index} uri={item.uri} isFavourite={item.favourite} />}
         keyExtractor={item => item.id}
         numColumns={3}
       />

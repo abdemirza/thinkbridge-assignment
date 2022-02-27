@@ -41,10 +41,11 @@ export const galleryReducer = (state = initialState, {type, payload}) => {
         ...state,
         categories: [...state.categories, payload],
       };
-      case 'ADD_TO_FAVOURITE':
+    case 'ADD_TO_FAVOURITE':
+      console.log(payload);
       return {
         ...state,
-        favourites: [payload,...state.favourites],
+        categories:payload,
       };
     case 'ADD_IMAGE':
       return {
@@ -53,7 +54,10 @@ export const galleryReducer = (state = initialState, {type, payload}) => {
           if (category.id === payload.id) {
             return {
               ...category,
-              images: [...category.images, payload.uri],
+              images: [
+                ...category.images,
+                {favourite: false, uri: payload.uri},
+              ],
             };
           }
           return category;

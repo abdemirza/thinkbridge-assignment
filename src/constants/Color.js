@@ -1,4 +1,4 @@
-export const PRIMARY = '#00a8ff';
+export const PRIMARY =  '#5B5F97';
 export const SECONDARY = '#00a8ff';
 export const TERTIARY = '#00a8ff';
 export const RANDOM_COLOR = [

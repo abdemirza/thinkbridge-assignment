@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import CategoryScreen from '../screens/CategoryScreen';
 import { PRIMARY, TERTIARY } from '../constants/Color';
+import FavouriteScreen from '../screens/FavouriteScreen';
 const Tab = createBottomTabNavigator();
 
 export default function BottomNavigator() {
@@ -11,7 +12,7 @@ export default function BottomNavigator() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: PRIMARY,
-        tabBarInactiveTintColor: TERTIARY,
+        tabBarInactiveTintColor:'#dfdfdf',
         tabBarStyle: {
           backgroundColor: '#fff',
         },
@@ -25,6 +26,16 @@ export default function BottomNavigator() {
         }}
         name="WELCOME"
         component={CategoryScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'Favourites',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="star" color={color} size={size} />
+          ),
+        }}
+        name="Favorite"
+        component={FavouriteScreen}
       />
      
     </Tab.Navigator>
