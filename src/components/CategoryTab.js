@@ -23,5 +23,6 @@ const styles = StyleSheet.create({
         fontSize: FONT_SIZE_LARGE,
         fontWeight: '500',
         textTransform: 'uppercase',
+        color: '#000',
     }
 });

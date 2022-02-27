@@ -45,6 +45,7 @@ export default function CategoryScreen({navigation}) {
       {inputVisible && (
         <TextInput
           value={category}
+          placeholderTextColor={'grey'}
           onChangeText={newText => setCategory(newText)}
           autoCapitalize="characters"
           style={styles.input}
